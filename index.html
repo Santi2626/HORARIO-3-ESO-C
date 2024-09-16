@@ -24,7 +24,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             padding: 30px;
             max-width: 900px;
-            width: 90%;
+            width: 100%;
+            overflow-x: auto; /* Permitir scroll horizontal en móviles */
         }
 
         h1 {
@@ -88,10 +89,15 @@
             color: #185a9d;
         }
 
+        /* Responsividad para móviles */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
                 width: 95%;
+            }
+
+            h1 {
+                font-size: 2em;
             }
 
             table {
@@ -99,11 +105,25 @@
             }
 
             th, td {
-                padding: 10px 5px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
             }
 
-            h1 {
-                font-size: 2em;
+            table {
+                font-size: 12px; /* Reduce el tamaño de fuente en móviles pequeños */
+            }
+
+            th, td {
+                padding: 8px; /* Ajusta el padding para pantallas pequeñas */
+            }
+
+            td:hover {
+                transform: none; /* Desactivar el hover en pantallas táctiles */
             }
         }
     </style>
