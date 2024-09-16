@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario Escolar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 900px;
+            width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #185a9d;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: none;
+        }
+
+        th {
+            background-color: #185a9d;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        td:hover {
+            background-color: rgba(24, 90, 157, 0.2);
+            transform: scale(1.05);
+        }
+
+        .time-column {
+            background-color: #43cea2;
+            color: white;
+            font-weight: 600;
+        }
+
+        .recreo {
+            background-color: #ffd700;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .subject {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subject:hover {
+            color: #185a9d;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                width: 95%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px 5px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Horario Escolar</h1>
+        <table id="horario">
+            <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+            </tr>
+            <tr>
+                <td class="time-column">8:30 - 9:30</td>
+                <td class="subject" data-full="Matemáticas">Mat</td>
+                <td class="subject" data-full="Tecnología">TECDI</td>
+                <td class="subject" data-full="Educación Física">EFI</td>
+                <td class="subject" data-full="Geografía e Historia">GH</td>
+                <td class="subject" data-full="Inglés">ING</td>
+            </tr>
+            <tr>
+                <td class="time-column">9:30 - 10:30</td>
+                <td class="subject" data-full="Educación Física">EFI</td>
+                <td class="subject" data-full="Inglés">ING</td>
+                <td class="subject" data-full="Geografía e Historia">GH</td>
+                <td class="subject" data-full="Física y Química">FYQ</td>
+                <td class="subject" data-full="Física y Química">FYQ</td>
+            </tr>
+            <tr>
+                <td class="time-column">10:30 - 11:30</td>
+                <td class="subject" data-full="Lengua y Literatura">LCL</td>
+                <td class="subject" data-full="Geografía e Historia">GH</td>
+                <td class="subject" data-full="Matemáticas">Mat</td>
+                <td class="subject" data-full="Cultura y Religión">CYR</td>
+                <td class="subject" data-full="Tutoría">TUT</td>
+            </tr>
+            <tr>
+                <td class="time-column">11:30 - 12:00</td>
+                <td class="recreo" colspan="5">Recreo</td>
+            </tr>
+            <tr>
+                <td class="time-column">12:00 - 13:00</td>
+                <td class="subject" data-full="Física y Química">FYQ</td>
+                <td class="subject" data-full="Matemáticas">MAT</td>
+                <td class="subject" data-full="Lengua y Literatura">LCL</td>
+                <td class="subject" data-full="Educación en Valores">Valores</td>
+                <td class="subject" data-full="Matemáticas">Mat</td>
+            </tr>
+            <tr>
+                <td class="time-column">13:00 - 14:00</td>
+                <td class="subject" data-full="Educación Plástica y Visual">EPV</td>
+                <td class="subject" data-full="Lengua y Literatura">LCL</td>
+                <td class="subject" data-full="Inglés">ING</td>
+                <td class="subject" data-full="Lengua y Literatura">LCL</td>
+                <td class="subject" data-full="Biología y Geología">BYG</td>
+            </tr>
+            <tr>
+                <td class="time-column">14:00 - 15:00</td>
+                <td class="subject" data-full="Inglés">ING</td>
+                <td class="subject" data-full="Cultura y Religión">CYR</td>
+                <td class="subject" data-full="Biología y Geología">BYG</td>
+                <td class="subject" data-full="Tecnología">TECDI</td>
+                <td class="subject" data-full="Educación Plástica y Visual">EPV</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('horario').addEventListener('click', function(e) {
+            if (e.target.classList.contains('subject')) {
+                if (e.target.textContent === e.target.dataset.full) {
+                    e.target.textContent = e.target.dataset.original || e.target.dataset.full.match(/\b(\w)/g).join('');
+                    e.target.dataset.original = '';
+                } else {
+                    e.target.dataset.original = e.target.textContent;
+                    e.target.textContent = e.target.dataset.full;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
